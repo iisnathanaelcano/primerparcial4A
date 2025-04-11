@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-03-2025 a las 20:24:48
+-- Tiempo de generación: 11-04-2025 a las 05:36:28
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.1.25
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,136 +24,134 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `colonias`
+-- Estructura de tabla para la tabla `activo`
 --
 
-CREATE TABLE `colonias` (
+CREATE TABLE `activo` (
   `id` int(11) NOT NULL,
-  `nombre_colonias` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `colonias`
---
-
-INSERT INTO `colonias` (`id`, `nombre_colonias`) VALUES
-(8, 'bugambilias'),
-(11, 'campestre'),
-(5, 'esfuerzo'),
-(6, 'freznos'),
-(3, 'granjas'),
-(1, 'jarachina norte'),
-(2, 'jarachina sur'),
-(10, 'loma real'),
-(7, 'progreso'),
-(9, 'venturas'),
-(12, 'vista alta'),
-(4, 'vista hermosa');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `edades`
---
-
-CREATE TABLE `edades` (
-  `id` int(11) NOT NULL,
-  `edad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `edades`
---
-
-INSERT INTO `edades` (`id`, `edad`) VALUES
-(1, 14),
-(2, 15),
-(3, 16),
-(4, 17),
-(5, 18),
-(6, 19);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `especialidades`
---
-
-CREATE TABLE `especialidades` (
-  `id` int(11) NOT NULL,
-  `nombre_especialidad` varchar(100) NOT NULL
+  `respuesta_activo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `generos`
+-- Estructura de tabla para la tabla `equipos`
 --
 
-CREATE TABLE `generos` (
+CREATE TABLE `equipos` (
   `id` int(11) NOT NULL,
-  `nombre_genero` varchar(50) NOT NULL
+  `nombre_equipo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pilotos`
+--
+
+CREATE TABLE `pilotos` (
+  `id` int(11) NOT NULL,
+  `nombre(s)` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `numero` int(50) NOT NULL,
+  `país` varchar(50) NOT NULL,
+  `posicion` int(11) NOT NULL,
+  `activo` int(11) NOT NULL,
+  `equipo` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `posiciones`
+--
+
+CREATE TABLE `posiciones` (
+  `id` int(11) NOT NULL,
+  `posicion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `posiciones`
+--
+
+INSERT INTO `posiciones` (`id`, `posicion`) VALUES
+(1, '1'),
+(2, '2'),
+(3, '3'),
+(4, '4'),
+(5, '5'),
+(6, '6'),
+(7, '7'),
+(8, '8'),
+(9, '9'),
+(10, '10'),
+(11, '11'),
+(12, '12'),
+(13, '13'),
+(14, '14'),
+(15, '15'),
+(16, '16'),
+(17, '17'),
+(18, '18'),
+(19, '19'),
+(20, '20');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `colonias`
+-- Indices de la tabla `activo`
 --
-ALTER TABLE `colonias`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombre_colonias` (`nombre_colonias`);
+ALTER TABLE `activo`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `edades`
+-- Indices de la tabla `equipos`
 --
-ALTER TABLE `edades`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `edad` (`edad`);
+ALTER TABLE `equipos`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `especialidades`
+-- Indices de la tabla `pilotos`
 --
-ALTER TABLE `especialidades`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombre_especialidad` (`nombre_especialidad`);
+ALTER TABLE `pilotos`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `generos`
+-- Indices de la tabla `posiciones`
 --
-ALTER TABLE `generos`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombre_genero` (`nombre_genero`);
+ALTER TABLE `posiciones`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `colonias`
+-- AUTO_INCREMENT de la tabla `activo`
 --
-ALTER TABLE `colonias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT de la tabla `edades`
---
-ALTER TABLE `edades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de la tabla `especialidades`
---
-ALTER TABLE `especialidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT de la tabla `generos`
---
-ALTER TABLE `generos`
+ALTER TABLE `activo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `equipos`
+--
+ALTER TABLE `equipos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `pilotos`
+--
+ALTER TABLE `pilotos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `posiciones`
+--
+ALTER TABLE `posiciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
